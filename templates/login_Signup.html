@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ᴛʜᴇ ʀᴏʏᴀʟ ᴇꜱᴛᴀᴛᴇ</title>
+    
+
+    <style>
+
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 1200px;
+    max-width: 90%;
+    margin: 20px;
+}
+
+.left-section {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-container {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: #ff3333;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.logo {
+    color: #4169E1;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.form-wrapper {
+ 
+    position: relative;
+    height: 600px;
+     
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+form.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+/* Add or update this in your style.css file */
+.illustration {
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    color: #1a1a1a;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4169E1;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password svg {
+    fill: #757575;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background: #1a3aa0;
+}
+
+.separator {
+    text-align: center;
+    margin: 24px 0;
+    position: relative;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 60px);
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.separator::before {
+    left: 0;
+}
+
+.separator::after {
+    right: 0;
+}
+
+.separator span {
+    background: white;
+    padding: 0 12px;
+    color: #757575;
+    font-size: 14px;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.social-btn:hover {
+    background: #f5f5f5;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.terms {
+    font-size: 14px;
+    color: #757575;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.terms a {
+    color: #4169E1;
+    text-decoration: none;
+}
+
+.switch-form {
+    text-align: center;
+    font-size: 14px;
+    color: #757575;
+}
+
+.switch-form a {
+    color: #4169E1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        display: none;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+
+.illustration {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="https://i.pinimg.com/736x/28/ba/a3/28baa331ad388c82a82f352b4631193a.jpg" alt="Illustration" class="illustration">
+        </div>
+        <div class="form-container">
+            <div class="logo">ᴛʜᴇ ʀᴏʏᴀʟ ᴇꜱᴛᴀᴛᴇ</div><!-- Flash Messages -->
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="form-wrapper">
+
+            
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="active" action="{{ url_for('register') }}" method="post">
+                    <h1>Create account</h1>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email address" required>
+                        <div class="error-message" id="signup-email-error"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="button" class="toggle-password">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path
+                                    d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="submit" class="submit-btn">Create account</button>
+                    <div class="separator">
+                        <span>or sign up with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/db/19/33/db19332a23a44f772c5a1855a8aabf70.jpg"
+                                alt="Facebook">
+                        </button>
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/77/56/68/775668e7b3b5e1316e3edae47f40e35a.jpg"
+                                alt="Google">
+                        </button>
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/8f/8f/68/8f8f684a233022c2559a3bbc50fa5878.jpg"
+                                alt="Instagram">
+                        </button>
+                    </div>
+                    <p class="terms">
+                        By creating an account you agree to Messimo's
+                        <a href="#">Terms of Services</a> and <a href="#">Privacy Policy</a>.
+                    </p>
+                    <p class="switch-form">
+                        Have an account? <a href="#" id="showLogin">Log in</a>
+                    </p>
+                </form>
+
+                <!-- Login Form -->
+                <form id="loginForm" action="{{ url_for('login') }}" method="post">
+                    <h1>Welcome back</h1>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email address" required>
+                        <div class="error-message" id="login-email-error"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                        <button type="button" class="toggle-password">
+                            <svg viewBox="0 0 24 24" width="24" height="24">
+                                <path
+                                    d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="submit" class="submit-btn">Log in</button>
+                    <div class="separator">
+                        <span>or log in with</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/db/19/33/db19332a23a44f772c5a1855a8aabf70.jpg" alt="Facebook">
+                        </button>
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/77/56/68/775668e7b3b5e1316e3edae47f40e35a.jpg" alt="Google">
+                        </button>
+                        <button type="button" class="social-btn">
+                            <img src="https://i.pinimg.com/736x/8f/8f/68/8f8f684a233022c2559a3bbc50fa5878.jpg" alt="Instagram">
+                        </button>
+                    </div>
+                    <p class="switch-form">
+                        Don't have an account? <a href="#" id="showSignup">Sign up</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="loginScript/login.js"></script>
+
+
+
+ <script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+            const signupForm = document.getElementById('signupForm');
+            const loginForm = document.getElementById('loginForm');
+            const showLoginLink = document.getElementById('showLogin');
+            const showSignupLink = document.getElementById('showSignup');
+            const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+
+            // Form Submission
+            [signupForm, loginForm].forEach(form => {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    // Clear previous errors
+                    clearErrors(form);
+
+                    const formData = new FormData(form);
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok) {
+                            // Show error message
+                            const fieldId = form.id === 'signupForm' ? 'signup-email-error' : 'login-email-error';
+                            showError(fieldId, data.error);
+                            const input = form.querySelector(`input[name="${data.field}"]`);
+                            input.classList.add('error');
+
+                            // Auto-hide error message after 3 seconds
+                            setTimeout(() => {
+                                clearErrors(form);
+                            }, 3000);
+                        } else {
+                            // Success - redirect or show success message
+                            if (data.redirect) {
+                                window.location.href = data.redirect;
+                            } else {
+                                window.location.href = '/';
+                            }
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            // Show Login Form
+            showLoginLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                signupForm.classList.remove('active');
+                loginForm.classList.add('active');
+                clearErrors(signupForm);
+                clearErrors(loginForm);
+            });
+
+            // Show Signup Form
+            showSignupLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginForm.classList.remove('active');
+                signupForm.classList.add('active');
+                clearErrors(signupForm);
+                clearErrors(loginForm);
+            });
+
+            // Toggle Password Visibility
+            togglePasswordBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const input = btn.parentElement.querySelector('input');
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        btn.querySelector('svg').style.fill = '#43a047';
+                    } else {
+                        input.type = 'password';
+                        btn.querySelector('svg').style.fill = '#757575';
+                    }
+                });
+            });
+
+            // Helper functions
+            function showError(elementId, message) {
+                const errorElement = document.getElementById(elementId);
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                }
+            }
+
+            function clearErrors(form) {
+                const errorMessages = form.querySelectorAll('.error-message');
+                const inputs = form.querySelectorAll('input');
+
+                errorMessages.forEach(error => {
+                    error.textContent = '';
+                    error.classList.remove('show');
+                });
+
+                inputs.forEach(input => {
+                    input.classList.remove('error');
+                });
+            }
+        });
+
+ </script>
+
+</body>
+
+</html>
