@@ -484,11 +484,11 @@ body.loaded {
             font-size: 14px;
             display: flex;
             flex-wrap: nowrap;
-            /* Ensure single line */
+           
             justify-content: center;
-            /* Center the content */
+           
             gap: 15px;
-            /* Add spacing between links */
+            
         }
 
         .footer-bottom p {
@@ -788,7 +788,7 @@ body.loaded {
         </div>
         <!-- End Responsive Menu -->
 
-        <!-- Main section with services -->
+        <!-- Main  -->
         <div class="main">
 
             <div class="about-section">
@@ -800,7 +800,7 @@ body.loaded {
             
                 <div class="stats-container">
                     <div class="stat-box">
-                        <div class="stat-number">20+</div>
+                        <div class="stat-number">28+</div>
                         <div class="stat-label">Years of Experience</div>
                     </div>
                     <div class="stat-box">
@@ -834,21 +834,21 @@ body.loaded {
                     <h2 class="section-title">Meet Our Leadership Team</h2>
                     <div class="team-grid">
                         <div class="team-member">
-                            <img src="/images/a1.jpg" alt="Team Member 1">
+                            <img src="{{ url_for('static', filename='images/a1.jpg') }}" alt="Team Member 1">
                             <div class="team-info">
                                 <h3>Robert Johnson</h3>
                                 <p>Chief Executive Officer</p>
                             </div>
                         </div>
                         <div class="team-member">
-                            <img src="/images/a2.jpg" alt="Team Member 2">
+                            <img src="{{ url_for('static', filename='images/a2.jpg') }}" alt="Team Member 2">
                             <div class="team-info">
                                 <h3>Michael Sterling</h3>
                                 <p>Head of Operations</p>
                             </div>
                         </div>
                         <div class="team-member">
-                            <img src="/images/a3.jpg" alt="Team Member 3">
+                            <img src="{{ url_for('static', filename='images/a3.jpg') }}" alt="Team Member 3">
                             <div class="team-info">
                                 <h3>Isabella Reed</h3>
                                 <p>Lead Real Estate Agent</p>
@@ -948,7 +948,7 @@ body.loaded {
         <!-- Footer -->
     </div>
 
-    <!-- Scripts -->
+    
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

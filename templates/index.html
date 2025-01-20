@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
 
-    <!-- Boxicons CSS -->
+    
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
 
-    <!-- Boxicons CSS -->
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     
@@ -1522,9 +1522,9 @@ h2{
     text-align: center;
     font-size: 14px;
     display: flex;
-    flex-wrap: nowrap; /* Ensure single line */
-    justify-content: center; /* Center the content */
-    gap: 15px; /* Add spacing between links */
+    flex-wrap: nowrap; 
+    justify-content: center; 
+    gap: 15px;
 }
 
 .footer-bottom p {
@@ -2260,13 +2260,13 @@ a {
 
 
 
-    <!-- jQuery -->
+    
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
-    <!-- Swiper JS -->
+    
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-    <!-- Custom JS -->
+    
     <script src="js/script.js"></script>
 
      <script>
@@ -2387,7 +2387,7 @@ a {
 
             benefitImageSize();
 
-            // Update Image Height when resizing the window
+            // Image Height when resizing the window
             $(window)
                 .resize(function () {
                     setTimeout(function () {
@@ -2399,7 +2399,7 @@ a {
 
 
                 var benefitsAccordionClickImageFade = function () {
-                // Set first item as active by default
+                
                 $(".benefits-text .accordion-item:first").addClass("active");
                 $(".benefits-img ul li:first").addClass("active");
 
@@ -2407,7 +2407,7 @@ a {
                     var $this = $(this);
                     $this.find("h3 > a").attr("data-index", index);
 
-                    // Preload images
+                    // this is for to render the images faster
                     var imgList = $(".benefits-img ul li:eq(" + index + ") img");
                     imgList.each(function () {
                         var img = new Image();
@@ -2426,7 +2426,7 @@ a {
                 });
             };
 
-            // Call this function before other initializations
+             
             benefitsAccordionClickImageFade();
 
         });

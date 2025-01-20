@@ -15,7 +15,7 @@ db_config = {
     'database': 'real_estate'  
 }
 
-# Login required decorator
+# login 
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -37,7 +37,7 @@ def home():
 
 @app.route('/login_signup')
 def login_signup():
-    # If user is already logged in, redirect to the next URL or home
+    # if user is already logged in 
     if session.get('loggedin'):
         next_page = session.get('next')
         if next_page:
@@ -46,13 +46,13 @@ def login_signup():
         return redirect(url_for('home'))
     return render_template('login_Signup.html')
 
-# Protected route for the Property page
+
 @app.route('/property')
 @login_required
 def property():
     return render_template('property.html')
 
-# Public routes
+
 @app.route('/services')
 def services():
     return render_template('services.html')
@@ -78,19 +78,19 @@ def register():
             conn = get_db_connection()
             cursor = conn.cursor(dictionary=True)
             
-            # Check if email already exists
+            #  if email already exists
             cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
             account = cursor.fetchone()
             
             if account:
                 return jsonify({'error': 'This email is already registered', 'field': 'email'}), 400
             
-            # Insert new user with the plain password
+            # insert new user data
             cursor.execute('INSERT INTO users (email, password) VALUES (%s, %s)', 
                          (email, password))  # Use the plain password directly
             conn.commit()
             
-            # Automatically log in the user after registration
+            # automatically log in if the user is already registered
             cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
             user = cursor.fetchone()
             
@@ -98,7 +98,7 @@ def register():
             session['id'] = user['id']
             session['email'] = user['email']
             
-            # Redirect to the stored next URL if it exists
+             
             next_page = session.get('next')
             if next_page:
                 session.pop('next', None)
@@ -124,18 +124,18 @@ def login():
             conn = get_db_connection()
             cursor = conn.cursor(dictionary=True)
             
-            # Get user with the provided email
+            # fetching user with email
             cursor.execute('SELECT * FROM users WHERE email = %s', (email,))
             user = cursor.fetchone()
             
-            # Directly compare the password without hashing
+            # comparing password  
             if user and user['password'] == password:
-                # Create session data
+                 
                 session['loggedin'] = True
                 session['id'] = user['id']
                 session['email'] = user['email']
                 
-                # Redirect to the stored next URL if it exists
+                
                 next_page = session.get('next')
                 if next_page:
                     session.pop('next', None)
@@ -152,7 +152,7 @@ def login():
                 cursor.close()
                 conn.close()
 
-
+# log out
 @app.route('/logout')
 def logout():
     session.clear()

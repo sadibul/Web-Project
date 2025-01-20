@@ -7,18 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ᴛʜᴇ ʀᴏʏᴀʟ ᴇꜱᴛᴀᴛᴇ property</title>
 
-    <!-- 
-    - favicon
-  -->
+   
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
-    <!-- Boxicons CSS -->
+    
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
 
-    <!-- Boxicons CSS -->
+     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <!-- Custom CSS -->
+     
     <link rel="stylesheet" href="property.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -496,11 +494,11 @@ body.mobile-menu-active .mobile-menu {
     font-size: 14px;
     display: flex;
     flex-wrap: nowrap;
-    /* Ensure single line */
+     
     justify-content: center;
-    /* Center the content */
+     
     gap: 15px;
-    /* Add spacing between links */
+    
 }
 
 .footer-bottom p {
@@ -1278,107 +1276,6 @@ body.mobile-menu-active .mobile-menu {
                     </div>
                 </div>
 
-
-
-
-            
-                 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             
             </div>
             <!-- end Property Cards Container -->
@@ -1951,9 +1848,9 @@ body.mobile-menu-active .mobile-menu {
 
 .toast-notification {
     position: fixed;
-    top: 20px;  /* Changed from bottom to top */
-    left: 50%;  /* Center horizontally */
-    transform: translateX(-50%) translateY(-100%);  /* Center and initial position above screen */
+    top: 20px;   
+    left: 50%;   
+    transform: translateX(-50%) translateY(-100%);   
     background: rgba(33, 33, 33, 0.95);
     color: white;
     padding: 16px 24px;
@@ -2017,9 +1914,9 @@ body.mobile-menu-active .mobile-menu {
                 const modalBody = modal.querySelector('.modal-body');
                 const closeModal = document.querySelector('.close-modal');
 
-                // Initial filter on page load
+                // the search function
                 window.addEventListener('DOMContentLoaded', () => {
-                    // Find the active button
+                    // in here we will find out by data-category
                     const activeButton = document.querySelector('.filter-btn.active');
                     if (activeButton) {
                         const filterValue = activeButton.getAttribute('data-filter');
@@ -2033,7 +1930,7 @@ body.mobile-menu-active .mobile-menu {
                     }
                 });
 
-                // Filter button functionality
+                // filter button functionality
                 filterButtons.forEach(button => {
                     button.addEventListener('click', () => {
                         filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -2049,7 +1946,7 @@ body.mobile-menu-active .mobile-menu {
                     });
                 });
 
-                // Search input functionality
+                // the search function
                 searchInput.addEventListener('input', (e) => {
                     const searchTerm = e.target.value.toLowerCase();
                     propertyCards.forEach(card => {
@@ -2063,10 +1960,10 @@ body.mobile-menu-active .mobile-menu {
                     });
                 });
 
-                // Modal display and interaction
+                // after click the card of property( the modal view)
                 propertyCards.forEach(card => {
                     card.addEventListener('click', () => {
-                        // Get basic property information
+                         
                         const propertyTitle = card.querySelector('.property-name').textContent;
                         const propertyPrice = card.querySelector('.price').textContent;
                         const propertyLocation = card.querySelector('.location').textContent;
@@ -2075,20 +1972,20 @@ body.mobile-menu-active .mobile-menu {
                         const parking = card.querySelector('.parking').textContent;
                         const sqft = card.querySelector('.sqft').textContent;
 
-                        // Get additional data from data attributes
+                        // after click modal info
                         const thumbnail1 = card.dataset.thumbnail1;
                         const thumbnail2 = card.dataset.thumbnail2;
                         const baths = card.dataset.baths;
                         const description = card.dataset.description;
                         const features = card.dataset.features.split(', ');
 
-                        // Get agent information
+                        //   agent info
                         const agentName = card.getAttribute('data-agentName');
                         const agentImage = card.getAttribute('data-agentImage');
                         const agentPhone = card.getAttribute('data-agentPhone');
                         const agentEmail = card.getAttribute('data-agentEmail');
 
-                        // Generate features HTML
+                        //   features 
                         const featuresHTML = features
                             .map(feature => `<li><i class='bx bx-check'></i> ${feature}</li>`)
                             .join('');
@@ -2171,7 +2068,7 @@ body.mobile-menu-active .mobile-menu {
                         modal.style.display = 'block';
                         document.body.style.overflow = 'hidden';
 
-                        // Initialize thumbnails
+                        // inside of thumbnails
                         const thumbnails = modalBody.querySelectorAll('.thumbnail');
                         const mainImage = modalBody.querySelector('.main-image');
                         thumbnails.forEach(thumb => {
@@ -2182,14 +2079,14 @@ body.mobile-menu-active .mobile-menu {
                             });
                         });
 
-                        // Initialize schedule button
+                        //  schedule button
                         function showToast(message, duration = 3000) {
                             const toast = document.getElementById('toast');
                             const toastMessage = toast.querySelector('.toast-message');
 
-                            // Remove any existing show class and reset animation
+                            // show the message for schedule
                             toast.classList.remove('show');
-                            void toast.offsetWidth; // Trigger reflow
+                            void toast.offsetWidth; 
 
                             toastMessage.textContent = message;
                             toast.classList.add('show');
@@ -2206,7 +2103,7 @@ body.mobile-menu-active .mobile-menu {
                     });
                 });
 
-                // Modal close functionality
+                //   close functionality in modal UI
                 closeModal.addEventListener('click', () => {
                     modal.style.display = 'none';
                     document.body.style.overflow = 'auto';
@@ -2325,14 +2222,14 @@ body.mobile-menu-active .mobile-menu {
 
 
 
-    <!-- jQuery -->
+     
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
-    <!-- Swiper JS -->
+     
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
-    <!-- ionicon link -->
+     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
